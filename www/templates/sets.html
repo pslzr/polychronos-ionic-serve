@@ -1,0 +1,28 @@
+
+<ion-view view-title="Sets">
+   <ion-nav-buttons side="secondary">
+        <p class="badge badge-positive">{{getUsername()}}</p>
+        <button class="button icon ion-plus" ng-click="newSet()"></button>  
+   </ion-nav-buttons>
+
+  <ion-content  class="has-header">
+    <ion-list class="item-text-wrap">
+      <ion-item ng-repeat="set in sets" >
+        <div class="row">
+            <div class="col col-40">{{set.name}}</div>
+            <div class="col col-25"> 
+            </div>
+            <div class="col col-33 text-right">
+                <button class="button icon ion-ios-list-outline"
+                        ng-click="editSetList(set._id)"></button>                
+                <button class="button icon ion-edit"
+                        ng-click="editSet(set._id)"></button>                
+                <button class="button icon ion-android-delete" 
+                        ng-click="deleteSet(set._id)"></button>                
+            </div>
+        </div>                  
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+

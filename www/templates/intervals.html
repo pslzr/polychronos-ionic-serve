@@ -1,0 +1,44 @@
+
+<ion-header-bar class="bar bar-subheader bar-dark">
+        <h2 class="title">Intervals</h2>  
+</ion-header-bar>
+
+<ion-view view-title="PolyChronos">
+   <ion-nav-buttons side="secondary">
+        <p class="badge badge-positive">{{getUsername()}}</p>
+        <button class="button icon ion-plus" ng-click="newInterval()"></button>  
+   </ion-nav-buttons>
+
+  <ion-content  class="has-header has-subheader">
+    <ion-list class="item-text-wrap">
+      <ion-item ng-repeat="interval in intervals" >
+        <div class="row">
+            <div class="col col-50">{{interval.name}}</div>
+            <div class="col col-20">
+                 
+                Time &nbsp;&nbsp; 
+                <font size="+2">
+                    <b>
+                    <span >{{interval.seconds}}</span>
+                    </b>
+                </font>
+            </div>
+            <div class="col text-right">
+            </div>
+        </div>                  
+        <div class="row">
+            <div class="col col-50">{{interval.alarm.name}}
+            </div>
+            <div class="col col-20">
+            </div>
+            <div class="col text-right">
+                <button class="button icon ion-edit"
+                        ng-click="editInterval(interval._id)"></button>                
+                <button class="button icon ion-android-delete" 
+                        ng-click="deleteInterval(interval._id)"></button>                
+            </div>
+        </div>                  
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

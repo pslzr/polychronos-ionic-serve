@@ -1,0 +1,58 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-dark">
+    <h1 class="title">{{updating ? 'Updating alarm' : 'New alarm'}}</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeAlarm()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="completeAlarm()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Name</span>
+          <input type="text" ng-model="alarm.name" required>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">Filename</span>
+            <select name="in place of file selection" ng-model="alarm.filename">
+                <option value="bottle">bottle</option>
+                <option value="funk">funk</option>
+                <option value="glass">glass</option>
+                <option value="morse">morse</option>
+                <option value="pop">pop</option>
+                <option value="purr">purr</option>
+                <option value="submarine">submarine</option>
+                <option value="tink">tink</option>
+            </select>
+        </label>
+          <i  class="input-button button icon ion-play" ng-click="playSound()">
+          </i>
+        <label class="item item-input">
+          <span class="input-label">Seconds</span>
+          <input type="number" ng-model="alarm.seconds" required>
+        </label>
+        <ion-toggle ng-model="alarm.confirmed">Confirmed</ion-toggle>          
+        <label class="item item-input" disabled="!alarm.confirmed">
+          <span class="input-label">Snooze seconds</span>
+          <input type="number" ng-model="alarm.confSeconds">
+        </label>
+        <ion-toggle ng-model="alarm.vibrate">Vibrate</ion-toggle>
+        <label class="item item-input">
+          <div class="row">
+              <div class="col col-50">Volume
+              </div>
+              <div class="col col-40">
+                <i class="icon ion-volume-low"></i>
+                <input type="range" ng-model="alarm.volume">
+                <i class="icon ion-volume-high"></i>
+              </div>
+          </div>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">{{updating ? 'Update' : 'Add'}}</button>
+        </label>
+      </div>
+    </form>
+    
+  </ion-content>
+</ion-modal-view>

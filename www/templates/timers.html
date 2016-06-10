@@ -1,0 +1,30 @@
+
+<ion-view view-title="Timers">
+   <ion-nav-buttons side="secondary">
+        <p class="badge badge-positive">{{getUsername()}}</p>
+        <button class="button icon ion-plus" ng-click="newTimer()"></button>  
+   </ion-nav-buttons>
+
+  <ion-content  class="has-header">
+    <ion-list class="item-text-wrap">
+      <ion-item ng-repeat="timer in timers" >
+        <div class="row">
+            <div class="col col-40">{{timer.name}}</div>
+            <div class="col col-25 text-right"> 
+                <button class="button icon ion-play"
+                        ng-click="newRecent(timer._id)"></button>                
+            </div>
+            <div class="col col-33 text-right">
+                <button class="button icon ion-ios-list-outline"
+                        ng-click="editTimerList(timer._id)"></button>                
+                <button class="button icon ion-edit"
+                        ng-click="editTimer(timer._id)"></button>                
+                <button class="button icon ion-android-delete" 
+                        ng-click="deleteTimer(timer._id)"></button>                
+            </div>
+        </div>                  
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+

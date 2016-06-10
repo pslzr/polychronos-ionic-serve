@@ -1,0 +1,33 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-dark">
+    <h1 class="title">{{updating ? 'Updating set of ' + timer.name : 'New set for '+timer.name  }}</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeTimer()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="completeTimer()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Set</span>
+          <select-box ng-Selected-Value="selectedValue" 
+                      ng-Item-Name="name" 
+                      ng-Item-Id="_id" 
+                      ng-title="Select set" 
+                      ng-data="sets" 
+                      ng-placeholder="nothing selected!"
+                      ng-select-changed="setSelected (selectedValue)"
+                      >
+            </select-box>          
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Cycles</span>
+          <input ng-style="{'color':'purple'}" type="number" ng-model="newSet.cycles">
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">{{updating ? 'Update' : 'Add'}}</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

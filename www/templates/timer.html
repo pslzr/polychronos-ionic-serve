@@ -1,0 +1,30 @@
+
+<ion-view view-title="Sets of {{timer.name}}">
+   <ion-nav-buttons side="secondary">
+        <p class="badge badge-positive">{{getUsername()}}</p>
+        <button class="button icon ion-plus" ng-click="newTimerSet()"></button>  
+   </ion-nav-buttons>
+
+  <ion-content  class="has-header">
+    <ion-list class="item-text-wrap">
+      <ion-item ng-repeat="set in timer.sets" >
+        <div class="row">{{index=timer.sets.indexOf(set);""}}
+            <div class="col col-33">{{findSetArray (set.setId).name}}</div>
+            <div class="col col-40 text-right">
+                <button class="button icon ion-arrow-up-c"
+                        ng-click="upTimerSet(index)"></button>                
+                <button class="button icon ion-arrow-down-c"
+                        ng-click="downTimerSet(index)"></button>                
+                <button class="button icon ion-edit"
+                        ng-click="editTimerSet(index)"></button>                
+                <button class="button icon ion-android-delete" 
+                        ng-click="deleteTimerSet(index)"></button>                
+            </div>
+            <div class="col col-25">
+                <span class="badge badge-royal">Cycles {{set.cycles}}</span>
+            </div>
+        </div>                  
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

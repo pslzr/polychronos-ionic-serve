@@ -1,0 +1,29 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-dark">
+    <h1 class="title">{{updating ? 'Updating interval of '+ set.name : 'New interval for '+set.name}}</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeSet()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="completeSet()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Interval</span>
+          <select-box ng-Selected-Value="selectedValue" 
+                      ng-Item-Name="name" 
+                      ng-Item-Id="_id" 
+                      ng-title="Select interval" 
+                      ng-data="intervals" 
+                      ng-placeholder="nothing selected!"
+                      ng-select-changed="intervalSelected (selectedValue)"
+                      >
+          </select-box>          
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">{{updating ? 'Update' : 'Add'}}</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

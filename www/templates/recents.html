@@ -1,0 +1,61 @@
+
+
+<ion-view view-title="Recents">
+   <ion-nav-buttons side="secondary">
+        <p class="badge badge-positive">{{getUsername()}}</p>
+   </ion-nav-buttons>
+
+  <ion-content  class="has-header">
+    <ion-list class="item-text-wrap">
+      <ion-item ng-repeat="recent  in recents" >
+            {{timer=recent.timer;""}}
+            {{set=recent.timer.sets[recent.setIdx].setId;""}}
+            {{interval=set.intervals[recent.intIdx];""}}
+        <div class="row">
+            <div class="col col-50">{{recent.timer.name}}</div>
+            <div class="col col-10"> 
+                <div ng-show="recent.status != 0" ng-style="{'color':'purple'}">
+                    <font size="+2">
+                        <b>
+                            <span>{{recent.cycle+1}}</span>/
+                            <span>{{timer.sets[recent.setIdx].cycles}}</span>
+                        </b>
+                    </font>
+                </div>
+            </div>
+            <div class="col text-right">
+                <button class="button icon ion-stop" 
+                        ng-class="{'disabled':recent.status == 0}"
+                        ng-click="stopRecent(recent._id)"></button>                
+                <button class="button icon" 
+                        ng-class="{ 'ion-play':recent.status != 1, 
+                                    'ion-pause':recent.status == 1,
+                                    'balanced': recent.status == 2}" 
+                        ng-click="playRecent(recent._id)"></button>                
+            </div>
+        </div>                  
+        <div class="row">
+            <div class="col col-50">
+                <div ng-hide="recent.status == 0">
+                    <span>{{set.name}}</span> 
+                    <span ng-style="{'color':'green'}">{{interval.name}}</span>
+                </div>
+            </div>
+            <div class="col col-10">
+                <div ng-show="recent.status != 0">
+                    <font size="+2">
+                        <b>
+                            <span>{{recent.seconds}}</span>
+                        </b>
+                    </font>
+                </div>
+            </div>
+            <div class="col text-right">
+                <button class="button icon ion-android-delete" 
+                        ng-click="deleteRecent(recent._id)"></button>                
+            </div>
+        </div>                  
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

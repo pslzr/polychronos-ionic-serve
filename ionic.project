@@ -1,0 +1,12 @@
+{
+  "name": "polyChronos",
+  "app_id": "Pch",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}

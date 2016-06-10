@@ -1,0 +1,55 @@
+
+<ion-view view-title="Alarms">
+   <ion-nav-buttons side="secondary">
+        <p class="badge badge-positive">{{getUsername()}}</p>
+        <button class="button icon ion-plus" ng-click="newAlarm()"></button>  
+   </ion-nav-buttons>
+
+  <ion-content  class="has-header">
+    <ion-list class="item-text-wrap">
+      <ion-item ng-repeat="alarm in alarms" >
+        <div class="row">
+            <div class="col col-50">{{alarm.name}}</div>
+            <div class="col col-20"> 
+                Time &nbsp;&nbsp;
+                <font size="+2">
+                    <b>
+                    <span>{{alarm.seconds}}</span>
+                    </b>
+                </font>
+            </div>
+            <div class="col text-right">
+                <button class="button icon ion-alert-circled" 
+                        ng-class="{'disabled':!alarm.confirmed}"
+                        ng-click=""></button>                
+                <button class="button icon ion-aperture"
+                        ng-class="{'disabled':!alarm.vibrate}"
+                        ng-click=""></button>                
+                <button class="button icon ion-play" 
+                        ng-click="playSound(alarm._id)"></button>                
+            </div>
+        </div>                  
+        <div class="row">
+            <div class="col col-50">{{alarm.filename}}
+            </div>
+            <div class="col col-20">
+                <div ng-show="alarm.confirmed">
+                    Snooze &nbsp;&nbsp; 
+                    <font size="+2">
+                        <b>
+                        <span>{{alarm.confSeconds}}</span>
+                        </b>
+                    </font>
+                </div>
+            </div>
+            <div class="col text-right">
+                <button class="button icon ion-edit"
+                        ng-click="editAlarm(alarm._id)"></button>                
+                <button class="button icon ion-android-delete" 
+                        ng-click="deleteAlarm(alarm._id)"></button>                
+            </div>
+        </div>                  
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

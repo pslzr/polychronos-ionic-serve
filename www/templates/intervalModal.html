@@ -1,0 +1,37 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-dark">
+    <h1 class="title">{{updating ? 'Updating interval' : 'New interval'}}</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeInterval()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="completeInterval()">
+      <ion-list>
+        <label class="item item-input">
+          <span class="input-label">Name</span>
+          <input type="text" ng-model="interval.name" required>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Alarm</span>
+            <select-box ng-Selected-Value="selectedValue" 
+                        ng-Item-Name="name" 
+                        ng-Item-Id="_id" 
+                        ng-title="Select alarm" 
+                        ng-data="alarms" 
+                        ng-placeholder="nothing selected!"
+                        ng-select-changed="alarmSelected (selectedValue)"
+                        >
+            </select-box>          
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Seconds</span>
+          <input type="number" ng-model="interval.seconds" required>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">{{updating ? 'Update' : 'Add'}}</button>
+        </label>
+      <ion-list>
+    </form>
+  </ion-content>
+</ion-modal-view>

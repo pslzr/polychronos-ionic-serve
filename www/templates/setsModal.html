@@ -1,0 +1,21 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-dark">
+    <h1 class="title">{{updating ? 'Updating set' : 'New set'}}</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeSet()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="completeSet()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Name</span>
+          <input type="text" ng-model="set.name" required>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">{{updating ? 'Update' : 'Add'}}</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

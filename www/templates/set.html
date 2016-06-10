@@ -1,0 +1,29 @@
+
+<ion-view view-title="Intervals of {{set.name}}">
+   <ion-nav-buttons side="secondary">
+        <p class="badge badge-positive">{{getUsername()}}</p>
+        <button class="button icon ion-plus" ng-click="newSetInterval()"></button>  
+   </ion-nav-buttons>
+
+  <ion-content  class="has-header">
+    <ion-list class="item-text-wrap">
+      <ion-item ng-repeat="interval in set.intervals" >
+        <div class="row">{{index=set.intervals.indexOf(interval);""}}
+            <div class="col col-40">{{findIntervalArray (interval).name}}</div>
+            <div class="col col-20"> 
+            </div>
+            <div class="col text-right">
+                <button class="button icon ion-arrow-up-c"
+                        ng-click="upSetInterval(index)"></button>                
+                <button class="button icon ion-arrow-down-c"
+                        ng-click="downSetInterval(index)"></button>
+                <button class="button icon ion-edit"
+                        ng-click="editSetInterval(index)"></button>                
+                <button class="button icon ion-android-delete" 
+                        ng-click="deleteSetInterval(index)"></button>                
+            </div>
+        </div>                  
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
