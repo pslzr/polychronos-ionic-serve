@@ -23,5 +23,19 @@
     "cordova-plugin-statusbar",
     "ionic-plugin-keyboard"
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [],
+  "keywords": [
+    "coursera",
+    "project",
+    "heroku",
+    "serve",
+    "ionic",
+    "polychronos",
+    "timer",
+    "timers"
+  ],
+  "author": "Pedro-Salazar",
+  "engines": {
+    "node": "4.4.0"
+  }
 }
