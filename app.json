@@ -1,0 +1,7 @@
+{
+    "name": "polychronos project",
+    "description": "Multiiple timers",
+    "repository": "https://github.com/pslzr/polychronos-ionic-serve.git",
+    "logo": "http://pathToYourLogo.png",
+    "keywords": ["ionic", "polychronos", "multi timer"]
+}
