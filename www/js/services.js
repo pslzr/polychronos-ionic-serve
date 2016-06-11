@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('polyChronos.services', ['ngResource', 'ionic'])
-        .constant("baseURL","http://polychronos-rest-server.herokuapp.com/")
+        .constant("baseURL","https://polychronos-rest-server.herokuapp.com/")
         .factory('$localStorage', ['$window', function($window) {
           return {
             store: function(key, value) {
