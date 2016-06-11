@@ -61,8 +61,42 @@ angular.module('polyChronos.controllers', [])
     AuthFactory.logout ();
     // $scope.modal.show();
   };
-    
+
+
+  // for registering
+  $scope.registerData = {};
+
+  // Create the login modal that we will use later
+  $ionicModal.fromTemplateUrl('templates/register.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.modalReg = modal;
+  });
+
+  // Triggered in the register modal to close it
+  $scope.closeRegister  = function() {
+    $scope.modalReg.hide();
+  };
+
+  // Open the register modal
+  $scope.openRegister = function() {
+    $scope.closeLogin();    
+    $scope.modalReg.show();
+  };
+
+  // Perform the register action when the user submits the login form
+  $scope.doRegister = function() {
+    console.log('Doing register', $scope.registerData);
+    $localStorage.storeObject('userinfo',$scope.registerData);
+      
+    AuthFactory.register ($scope.registerData);
+    $scope.modalReg.hide();
+  };
+
+  // from timers a timers was required to play
+  // redirect the state to recents, and create a new recent timer.. playing automatically   
   $scope.newRecent = function(timerId) {
+    // create the new recent.
     var recent = {timer:timerId,
                   status:0,
                   setIdx:0,
@@ -72,12 +106,16 @@ angular.module('polyChronos.controllers', [])
                   interval:"",
                   seconds:0   
                 };
-        // its adding
+        console.log("adding recent timer");
+        // add it
         recentsFactory.save (recent,
             function(response) {
+              console.log("response recent completed");
+              
               // ensure this recent timer to be shown first
-              $scope.addingRecent = response;
+              $rootScope.addingRecent = response;
 
+              console.log("requesting change to recents");
               // redirect state to recent timers,.. ensure reload recent timers
               $scope.select ("app.recents");
             },

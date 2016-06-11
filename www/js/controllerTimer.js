@@ -27,22 +27,15 @@ angular.module('polyChronos.controllers')
             // its updating  
             timersFactory.update ({id:$scope.timer._id}, $scope.timer,
                         function(response) {
-                            // reload page
-                            // $scope.updateTimerArray ($scope.timer._id, response);
-                            // $window.location.reload(true);
-                            // $scope.timers.push ($scope.timer);
                             prevIonicGoBack();
-                            // $state.go('app.timers');
 
                         },
                         function(response){
-                            // $rootScope.$broadcast('login:Unsuccessful');
                             var popUp = $ionicPopup.alert({
                                 title: 'Unsuccessful update',
                                 template: JSON.stringify (response.data.message)
                             });
                             popUp.then ( function (res) {
-                                // $state.go('app.timers');
                                 prevIonicGoBack();
                                 });
                         }
@@ -124,12 +117,16 @@ angular.module('polyChronos.controllers')
 
         // Perform the timer action when the user submits the timer form
         $scope.completeTimer  = function() {
+            //console.log('completing', JSON.stringify($scope.newSet));
+            //console.log('sets', JSON.stringify($scope.timer.sets));
             if ($scope.updating) {
-                $scope.timer.sets[$scope.index] = $scope.newSet;
+                $scope.timer.sets[$scope.index] = Object.assign({},$scope.newSet);
             }
             else{
-                $scope.timer.sets.push($scope.newSet);
+                $scope.timer.sets.push(Object.assign({},$scope.newSet));
             }
+            //console.log('completed', JSON.stringify($scope.timer.sets));
+                
             $scope.timerform.hide();
         };
         

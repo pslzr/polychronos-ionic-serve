@@ -48,7 +48,7 @@ angular.module('polyChronos.services', ['ngResource', 'ionic'])
             isAuthenticated = true;
             username    = credentials.username;
             authToken   = credentials.token;
-            console.log('authToken', authToken);
+            // console.log('authToken', authToken);
         
             // Set the token as header for your requests!
             $http.defaults.headers.common['x-access-token'] = authToken;

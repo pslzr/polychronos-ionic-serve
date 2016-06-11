@@ -1,0 +1,79 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Register</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeRegister()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="doRegister()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Username</span>
+          <input type="text" id="username" placeholder="Username" ng-model="registerData.username">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="text" id="password" placeholder="Password" ng-model="registerData.password">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">First name</span>
+          <input type="text" class="form-control input-sm" id="firstname" placeholder="First name" 
+                    ng-model="registerData.firstname">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Last name</span>
+          <input type="text" class="form-control input-sm" id="lastname" placeholder="Last name" 
+                    ng-model="registerData.lastname">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">e-mail</span>
+          <input type="text" class="form-control input-sm" id="email" placeholder="e-mail" 
+                    ng-model="registerData.email">
+        </label>
+        <ion-toggle ng-model="registerData.rememberMe">Remember me</ion-toggle>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Register</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>
+
+
+
+
+
+    <div class="ngdialog-message">
+        <div class="">
+            <h3>Register</h3>
+        </div>
+        <div class="">&nbsp;</div>
+        <div class="">
+            <form ng-submit="doRegister()">
+                <div class="form-group">
+                    <label class="sr-only" for="username">Username</label>
+                    <input type="text" class="form-control input-sm" id="username" placeholder="Username" ng-model="registration.username">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="password">Password</label>
+                    <input type="password" class="form-control input-sm" id="password" placeholder="Password" ng-model="registration.password">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="firstname">First Name</label>
+                    <input type="text" class="form-control input-sm" id="firstname" placeholder="First Name" ng-model="registration.firstname">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="lastname">Last Name</label>
+                    <input type="text" class="form-control input-sm" id="lastname" placeholder="Last Name" ng-model="registration.lastname">
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="registration.rememberMe"> Remember me
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-info btn-sm">Register</button>
+                <button type="button" class="btn btn-default btn-sm" ng-click=closeThisDialog("Cancel")>Cancel</button>
+            </form>
+        </div>
+    </div>

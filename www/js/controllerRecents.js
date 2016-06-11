@@ -14,13 +14,13 @@ angular.module('polyChronos.controllers')
 
         // see if a new timers was added
         $scope.$on('$ionicView.enter', function() {
-            console.log('opened');
+            console.log('recent opened');
             // Code you want executed every time view is opened
-            if ($scope.addingRecent != undefined) {
-                console.log('addingRecent!');
-                $scope.recents.unshift ($scope.addingRecent);
-                $scope.playTimer ($scope.addingRecent);
-                $scope.addingRecent = undefined;
+            if ($rootScope.addingRecent != undefined) {
+                console.log('new recent found!');
+                $scope.recents.unshift ($rootScope.addingRecent);
+                $scope.playTimer ($rootScope.addingRecent);
+                $rootScope.addingRecent = undefined;
             }
         });
     

@@ -70,11 +70,11 @@ angular.module('polyChronos.controllers')
             $scope.alarm = {
                                 name:"",
                                 filename:"",
-                                seconds:4,
+                                seconds:1,
                                 confirmed:false,
                                 confSeconds:0,
                                 vibrate:false,
-                                volume:100 
+                                volume:90 
                             };
             $scope.updating = false;
             $scope.showAlarm();
